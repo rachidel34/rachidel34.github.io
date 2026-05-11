@@ -34,7 +34,7 @@ body{font-family:var(--f);background:var(--surface);color:var(--text);overflow-x
 ::-webkit-scrollbar-thumb{background:var(--blue);border-radius:4px}
 a{text-decoration:none}
 
-/* ─── NAV ─── */
+/* NAV */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:999;
   background:rgba(8,14,26,0.93);backdrop-filter:blur(20px);
@@ -46,12 +46,12 @@ nav{
 .nav-brand::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:blink 2s ease-in-out infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
 .nav-links{display:flex;list-style:none}
-.nav-links a{color:rgba(255,255,255,0.45);font-size:0.78rem;font-weight:500;padding:0 0.9rem;height:62px;display:flex;align-items:center;letter-spacing:0.03em;transition:color 0.2s;position:relative}
-.nav-links a::after{content:'';position:absolute;bottom:0;left:0.9rem;right:0.9rem;height:2px;background:var(--blue);transform:scaleX(0);transition:transform 0.25s}
+.nav-links a{color:rgba(255,255,255,0.45);font-size:0.78rem;font-weight:500;padding:0 0.85rem;height:62px;display:flex;align-items:center;letter-spacing:0.03em;transition:color 0.2s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0.85rem;right:0.85rem;height:2px;background:var(--blue);transform:scaleX(0);transition:transform 0.25s}
 .nav-links a:hover{color:white}
 .nav-links a:hover::after{transform:scaleX(1)}
 
-/* ─── HERO ─── */
+/* HERO */
 .hero{min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;background:var(--dark)}
 .hero-dots{position:absolute;inset:0;z-index:0;background-image:radial-gradient(rgba(59,126,248,0.18) 1px,transparent 1px);background-size:36px 36px;animation:dotsDrift 30s linear infinite}
 @keyframes dotsDrift{to{background-position:36px 36px}}
@@ -72,8 +72,6 @@ nav{
 .btn-blue:hover{background:var(--blue2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(59,126,248,0.4)}
 .btn-outline{background:transparent;color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.18)}
 .btn-outline:hover{border-color:var(--blue2);color:white;background:rgba(59,126,248,0.1)}
-
-/* Profile card */
 .profile-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:22px;padding:2.5rem 2rem;text-align:center;backdrop-filter:blur(12px);position:relative;animation:fadeUp 0.7s 0.2s ease both}
 .profile-card::before{content:'';position:absolute;inset:0;border-radius:22px;background:linear-gradient(145deg,rgba(59,126,248,0.08),transparent 60%);pointer-events:none}
 .avatar-wrap{width:120px;height:120px;margin:0 auto 1.2rem;position:relative}
@@ -91,7 +89,7 @@ nav{
 .scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,rgba(255,255,255,0.3),transparent);animation:grow 1.5s ease-in-out infinite}
 @keyframes grow{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
-/* ─── LAYOUT ─── */
+/* LAYOUT */
 .page{max-width:1100px;margin:0 auto;padding:0 3rem 6rem}
 section{padding-top:6rem}
 .sh{display:flex;align-items:center;gap:1rem;margin-bottom:2.5rem}
@@ -99,22 +97,59 @@ section{padding-top:6rem}
 .sh-title{font-size:1.8rem;font-weight:800;color:var(--text)}
 .sh-line{flex:1;height:1px;background:var(--border)}
 
-/* ─── PROFIL ─── */
-.profil-about{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.5rem}
-.profil-about p{font-size:0.95rem;color:#445;line-height:1.85;margin-bottom:1rem}
-.profil-about p:last-child{margin-bottom:0}
+/* PROFIL */
+.profil-about{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow);margin-bottom:1.8rem}
+.profil-about p{font-size:0.95rem;color:#445;line-height:1.85}
 .profil-about strong{color:var(--text);font-weight:600}
 
-.skills-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.skill-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1rem 1.2rem;transition:all 0.25s}
-.skill-card:hover{border-color:var(--blue);transform:translateY(-2px);box-shadow:var(--shadow)}
-.skill-label{font-family:var(--mono);font-size:0.62rem;color:var(--muted);letter-spacing:0.08em;margin-bottom:3px}
-.skill-name{font-size:0.84rem;font-weight:600;color:var(--text);margin-bottom:7px}
-.skill-bar{height:2.5px;background:#e6ecf8;border-radius:2px;overflow:hidden}
-.skill-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,var(--blue),var(--cyan));transform:scaleX(0);transform-origin:left;transition:transform 1.1s cubic-bezier(0.16,1,0.3,1)}
-.skill-fill.on{transform:scaleX(1)}
+/* COMPÉTENCES EN BADGES */
+.competences-wrap{display:flex;flex-direction:column;gap:1.2rem}
+.comp-group{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem 1.8rem;box-shadow:var(--shadow);transition:all 0.25s}
+.comp-group:hover{border-color:rgba(59,126,248,0.3);transform:translateY(-2px);box-shadow:0 12px 36px rgba(59,126,248,0.12)}
+.comp-group-title{font-family:var(--mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--blue);margin-bottom:1rem;display:flex;align-items:center;gap:8px}
+.comp-group-title::before{content:'';width:4px;height:14px;background:linear-gradient(to bottom,var(--blue),var(--cyan));border-radius:2px}
+.badges{display:flex;flex-wrap:wrap;gap:8px}
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:7px 14px;border-radius:9px;font-size:0.82rem;font-weight:600;
+  border:1.5px solid transparent;transition:all 0.2s;cursor:default;
+}
+.badge-sys{background:#eef4ff;color:#2355b5;border-color:#d0e0ff}
+.badge-sys:hover{background:#2355b5;color:white}
+.badge-net{background:#e8fff5;color:#0a7a45;border-color:#b5ecd5}
+.badge-net:hover{background:#0a7a45;color:white}
+.badge-sec{background:#fff4e8;color:#b85c00;border-color:#ffd9a8}
+.badge-sec:hover{background:#b85c00;color:white}
+.badge-tool{background:#f3eeff;color:#6435c9;border-color:#d8c4ff}
+.badge-tool:hover{background:#6435c9;color:white}
 
-/* ─── AVENIR ─── */
+/* RAPPORT DE SYNTHÈSE */
+.synthese-box{
+  background:linear-gradient(135deg,var(--dark2),var(--dark3));
+  border:1px solid rgba(59,126,248,0.25);border-radius:var(--radius);
+  padding:2rem;margin-bottom:1.5rem;position:relative;overflow:hidden;
+}
+.synthese-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--cyan))}
+.synthese-box-title{font-size:1rem;font-weight:700;color:white;margin-bottom:0.4rem}
+.synthese-box-sub{font-size:0.8rem;color:rgba(255,255,255,0.45);margin-bottom:1.5rem}
+.synthese-slots{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.synthese-slot{
+  border:1.5px dashed rgba(59,126,248,0.35);border-radius:10px;
+  padding:1.1rem 1.3rem;background:rgba(59,126,248,0.04);
+  display:flex;align-items:center;gap:12px;cursor:pointer;
+  transition:all 0.25s;position:relative;
+}
+.synthese-slot:hover{border-color:var(--blue);background:rgba(59,126,248,0.1)}
+.synthese-slot input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;z-index:2}
+.slot-icon{font-size:1.4rem;flex-shrink:0}
+.slot-text strong{display:block;font-size:0.82rem;font-weight:600;color:rgba(255,255,255,0.85)}
+.slot-text span{font-size:0.7rem;color:rgba(255,255,255,0.4);font-family:var(--mono)}
+.slot-preview{display:none;align-items:center;gap:8px;padding:8px 12px;background:rgba(34,212,122,0.1);border:1px solid rgba(34,212,122,0.25);border-radius:8px;margin-top:8px}
+.slot-preview .sp-name{font-size:0.78rem;font-weight:600;color:var(--green)}
+.slot-preview .sp-view{font-size:0.7rem;color:var(--blue2);cursor:pointer;font-family:var(--mono);margin-left:auto}
+.slot-preview .sp-del{font-size:0.7rem;color:#e55;cursor:pointer;font-family:var(--mono);margin-left:6px}
+
+/* AVENIR */
 .avenir-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
 .avenir-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem 1.5rem;box-shadow:var(--shadow);position:relative;overflow:hidden;transition:all 0.3s}
 .avenir-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--cyan))}
@@ -123,7 +158,7 @@ section{padding-top:6rem}
 .avenir-title{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:0.9rem}
 .avenir-desc{font-size:0.87rem;color:#445;line-height:1.7}
 
-/* ─── FORMATION ─── */
+/* FORMATION */
 .formation-list{display:flex;flex-direction:column;gap:14px}
 .formation-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem 2rem;display:flex;align-items:center;gap:1.5rem;transition:all 0.25s;position:relative;overflow:hidden}
 .formation-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(to bottom,var(--blue),var(--cyan))}
@@ -134,10 +169,10 @@ section{padding-top:6rem}
 .fc-title{font-size:0.98rem;font-weight:700;color:var(--text);margin-bottom:3px}
 .fc-place{font-size:0.82rem;color:var(--muted)}
 .fc-badge{font-family:var(--mono);font-size:0.63rem;padding:4px 12px;border-radius:100px;white-space:nowrap;align-self:center}
-.badge-green{background:rgba(34,212,122,0.1);color:var(--green);border:1px solid rgba(34,212,122,0.25)}
-.badge-blue{background:rgba(59,126,248,0.1);color:var(--blue);border:1px solid rgba(59,126,248,0.2)}
+.badge-green-fc{background:rgba(34,212,122,0.1);color:var(--green);border:1px solid rgba(34,212,122,0.25)}
+.badge-blue-fc{background:rgba(59,126,248,0.1);color:var(--blue);border:1px solid rgba(59,126,248,0.2)}
 
-/* ─── EXPÉRIENCES ─── */
+/* EXPÉRIENCES */
 .exp-list{display:flex;flex-direction:column;gap:2rem}
 .exp-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow);transition:all 0.3s;position:relative;overflow:hidden}
 .exp-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(to bottom,var(--blue),var(--cyan))}
@@ -154,7 +189,7 @@ section{padding-top:6rem}
 .tasks li::before{content:'▸';position:absolute;left:0;color:var(--blue);font-size:0.72rem;top:1px}
 .tasks li strong{color:var(--text);font-weight:600}
 .pills{display:flex;flex-wrap:wrap;gap:6px;padding-top:1.2rem;border-top:1px solid #f0f4fb;margin-bottom:1.2rem}
-.pill{font-family:var(--mono);font-size:0.65rem;letter-spacing:0.03em;background:#f0f5ff;color:#334;border:1px solid rgba(59,126,248,0.15);padding:4px 11px;border-radius:100px;transition:all 0.2s}
+.pill{font-family:var(--mono);font-size:0.65rem;background:#f0f5ff;color:#334;border:1px solid rgba(59,126,248,0.15);padding:4px 11px;border-radius:100px;transition:all 0.2s}
 .pill:hover{background:var(--blue);color:white;border-color:var(--blue)}
 .doc-link{display:flex;align-items:center;gap:12px;border:1.5px solid rgba(59,126,248,0.28);border-radius:10px;padding:13px 18px;background:rgba(59,126,248,0.03);transition:all 0.25s;color:inherit}
 .doc-link:hover{border-color:var(--blue);background:rgba(59,126,248,0.07);transform:translateX(3px)}
@@ -163,7 +198,7 @@ section{padding-top:6rem}
 .doc-link-text span{font-size:0.73rem;color:var(--muted);font-family:var(--mono)}
 .doc-link-cta{font-family:var(--mono);font-size:0.72rem;color:var(--blue);margin-left:auto;white-space:nowrap}
 
-/* ─── PROJETS ─── */
+/* PROJETS */
 .projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
 .project-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem;box-shadow:var(--shadow);transition:all 0.3s;position:relative;overflow:hidden}
 .project-card::after{content:'';position:absolute;top:0;right:0;width:180px;height:180px;background:radial-gradient(circle,rgba(59,126,248,0.06) 0%,transparent 70%);transform:translate(40%,-40%)}
@@ -173,7 +208,7 @@ section{padding-top:6rem}
 .project-sub{font-size:0.78rem;color:var(--muted);font-style:italic;margin-bottom:1rem}
 .project-desc{font-size:0.86rem;color:#445;line-height:1.7;margin-bottom:1.1rem}
 
-/* ─── VEILLE ─── */
+/* VEILLE */
 .veille-wrap{display:grid;grid-template-columns:1.2fr 0.8fr;gap:1.5rem}
 .veille-main{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow)}
 .veille-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem}
@@ -200,7 +235,7 @@ section{padding-top:6rem}
 .key-item:last-child{border-bottom:none}
 .key-dot{width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0;margin-top:5px}
 
-/* ─── CERTIFICATIONS ─── */
+/* CERTIFICATIONS */
 .certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
 .cert-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem 1.4rem;text-align:center;box-shadow:var(--shadow);transition:all 0.3s;position:relative;overflow:hidden}
 .cert-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--cyan))}
@@ -212,7 +247,7 @@ section{padding-top:6rem}
 .status-ok{background:rgba(34,212,122,0.1);color:var(--green);border:1px solid rgba(34,212,122,0.2)}
 .status-soon{background:rgba(255,200,50,0.1);color:#c49000;border:1px solid rgba(255,200,50,0.2)}
 
-/* ─── CONTACT ─── */
+/* CONTACT */
 .contact-wrap{background:linear-gradient(135deg,var(--dark),var(--dark2));border-radius:22px;padding:3.5rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;position:relative;overflow:hidden}
 .contact-wrap::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(59,126,248,0.1) 0%,transparent 70%);right:-150px;top:-150px;pointer-events:none}
 .contact-left h2{font-size:2rem;font-weight:800;color:white;line-height:1.2;margin-bottom:1rem}
@@ -228,41 +263,34 @@ section{padding-top:6rem}
 .fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,0.18)}
 .fg textarea{resize:vertical;min-height:90px}
 
-/* ─── FOOTER ─── */
 footer{text-align:center;padding:2rem;font-family:var(--mono);font-size:0.72rem;color:var(--muted);border-top:1px solid var(--border);margin-top:4rem}
 footer span{color:var(--blue)}
 
-/* ─── ANIMATIONS ─── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity 0.65s ease,transform 0.65s ease}
 .reveal.vis{opacity:1;transform:none}
 
-/* ─── RESPONSIVE ─── */
 @media(max-width:860px){
   nav{padding:0 1.2rem}
-  .nav-links a{padding:0 0.55rem;font-size:0.7rem}
-  .hero-inner,.page{padding-left:1.5rem;padding-right:1.5rem}
-  .hero-inner{grid-template-columns:1fr;padding-top:100px;padding-bottom:60px}
+  .nav-links a{padding:0 0.5rem;font-size:0.7rem}
+  .hero-inner{grid-template-columns:1fr;padding:100px 1.5rem 60px}
   .profile-card{display:none}
-  .skills-wrap,.avenir-grid,.certs-grid{grid-template-columns:1fr 1fr}
-  .tasks,.projects-grid{grid-template-columns:1fr}
+  .page{padding:0 1.5rem 4rem}
+  .tasks,.projects-grid,.synthese-slots,.avenir-grid,.certs-grid{grid-template-columns:1fr}
   .veille-wrap,.veille-cols,.contact-wrap{grid-template-columns:1fr}
   .contact-wrap{padding:2rem;gap:2rem}
 }
-@media(max-width:540px){
-  .nav-links{display:none}
-  .skills-wrap,.avenir-grid,.certs-grid{grid-template-columns:1fr}
-}
+@media(max-width:540px){.nav-links{display:none}}
 </style>
 </head>
 <body>
 
-<!-- ═══ NAV ═══ -->
 <nav>
   <div class="nav-brand">REG · PORTFOLIO 2026</div>
   <ul class="nav-links">
     <li><a href="#profil">Profil</a></li>
+    <li><a href="#synthese">Rapport</a></li>
     <li><a href="#avenir">Avenir</a></li>
     <li><a href="#formation">Formation</a></li>
     <li><a href="#experiences">Expériences</a></li>
@@ -273,7 +301,6 @@ footer span{color:var(--blue)}
   </ul>
 </nav>
 
-<!-- ═══ HERO ═══ -->
 <div class="hero">
   <div class="hero-dots"></div>
   <div class="hero-glow1"></div>
@@ -299,10 +326,7 @@ footer span{color:var(--blue)}
       <div class="profile-card">
         <div class="avatar-wrap">
           <div class="avatar-ring"></div>
-          <div class="avatar-inner">
-            RE
-            <img src="profil.jpg" alt="Rachid El Ghazal" onerror="this.style.display='none'">
-          </div>
+          <div class="avatar-inner">RE<img src="profil.jpg" alt="" onerror="this.style.display='none'"></div>
         </div>
         <div class="pc-name">Rachid El Ghazal</div>
         <div class="pc-sub">SISR · Montpellier · 2026</div>
@@ -317,72 +341,128 @@ footer span{color:var(--blue)}
   <div class="scroll-cue">Scroll<div class="scroll-line"></div></div>
 </div>
 
-<!-- ═══ PAGE ═══ -->
 <div class="page">
 
-  <!-- ══════════════════════════
-       01 · PROFIL
-  ══════════════════════════ -->
+  <!-- 01 PROFIL -->
   <section id="profil">
-    <div class="sh reveal">
-      <span class="sh-num">01 /</span>
-      <h2 class="sh-title">Profil</h2>
-      <div class="sh-line"></div>
-    </div>
+    <div class="sh reveal"><span class="sh-num">01 /</span><h2 class="sh-title">Profil</h2><div class="sh-line"></div></div>
+
     <div class="profil-about reveal">
       <p>Je suis étudiant en <strong>BTS SIO option SISR</strong>, passionné par les réseaux, les serveurs et la virtualisation. J'aime explorer les systèmes, tester des configurations et comprendre ce qui se passe derrière les écrans. Curieux et débrouillard, j'apprécie apprendre de nouvelles technologies tout en donnant vie à des projets concrets et utiles.</p>
     </div>
-    <div class="skills-wrap">
-      <div class="skill-card reveal"><div class="skill-label">Serveurs Windows</div><div class="skill-name">Windows Server 2022</div><div class="skill-bar"><div class="skill-fill" data-w="0.82"></div></div></div>
-      <div class="skill-card reveal"><div class="skill-label">Linux</div><div class="skill-name">Ubuntu / Rocky</div><div class="skill-bar"><div class="skill-fill" data-w="0.68"></div></div></div>
-      <div class="skill-card reveal"><div class="skill-label">Gestion des accès</div><div class="skill-name">Active Directory</div><div class="skill-bar"><div class="skill-fill" data-w="0.78"></div></div></div>
-      <div class="skill-card reveal"><div class="skill-label">Réseau</div><div class="skill-name">DNS / DHCP / VLAN</div><div class="skill-bar"><div class="skill-fill" data-w="0.68"></div></div></div>
-      <div class="skill-card reveal"><div class="skill-label">Assistance</div><div class="skill-name">Support & Dépannage</div><div class="skill-bar"><div class="skill-fill" data-w="0.75"></div></div></div>
-      <div class="skill-card reveal"><div class="skill-label">Sécurité</div><div class="skill-name">Cybersécurité</div><div class="skill-bar"><div class="skill-fill" data-w="0.62"></div></div></div>
+
+    <div class="competences-wrap reveal">
+
+  <div class="comp-group">
+    <div class="comp-group-title">🛠️ Compétences Techniques</div>
+
+    <div class="badges">
+
+      <!-- Systèmes -->
+      <span class="badge badge-sys">Windows Server 2022</span>
+      <span class="badge badge-sys">Linux Ubuntu</span>
+      <span class="badge badge-sys">Active Directory</span>
+      <span class="badge badge-sys">Virtualisation (VirtualBox)</span>
+      <span class="badge badge-sys">Stratégies de groupe (GPO)</span>
+
+      <!-- Réseau -->
+      <span class="badge badge-net">DNS</span>
+      <span class="badge badge-net">DHCP</span>
+      <span class="badge badge-net">VLAN & Trunk</span>
+      <span class="badge badge-net">VPN</span>
+      <span class="badge badge-net">Spanning-Tree</span>
+
+      <!-- Sécurité -->
+      <span class="badge badge-sec">Pare-feu (Stormshield)</span>
+      <span class="badge badge-sec">Cybersécurité</span>
+      <span class="badge badge-sec">Moindre privilège</span>
+      <span class="badge badge-sec">Sauvegarde & reprise</span>
+
+      <!-- Outils -->
+      <span class="badge badge-tool">Centreon</span>
+      <span class="badge badge-tool">Zabbix</span>
+      <span class="badge badge-tool">Packet Tracer</span>
+      <span class="badge badge-tool">GNS3</span>
+      <span class="badge badge-tool">SSH</span>
+      <span class="badge badge-tool">Mastérisation de postes</span>
+      <span class="badge badge-tool">RAID 0</span>
+    </div>
+  </div>
+      
+  </section>
+
+  <!-- 02 RAPPORT DE SYNTHÈSE & DIAPORAMA -->
+  <section id="synthese">
+    <div class="sh reveal"><span class="sh-num">02 /</span><h2 class="sh-title">Rapport de Synthèse & Diaporama</h2><div class="sh-line"></div></div>
+
+    <div class="synthese-box reveal">
+      <div class="synthese-box-title">📁 Documents pour l'épreuve orale E5</div>
+      <div class="synthese-box-sub">Déposez ici votre rapport de synthèse et votre diaporama de présentation — ils resteront accessibles pendant toute la durée de votre navigation.</div>
+      <div class="synthese-slots">
+
+        <!-- Slot Rapport -->
+        <<div class="synthese-slots">
+
+        <a href="tableau-de-synthese.pdf" target="_blank" style="text-decoration: none; color: inherit;">
+          <div class="synthese-slot">
+            <div class="slot-icon">📄</div>
+            <div class="slot-text">
+              <strong>Ouvrir le Rapport de Synthèse</strong>
+              <span>Format PDF</span>
+            </div>
+          </div>
+        </a>
+
+        <a href="diaporama.html" target="_blank" style="text-decoration: none; color: inherit;">
+          <div class="synthese-slot">
+            <div class="slot-icon">🎞️</div>
+            <div class="slot-text">
+              <strong>Ouvrir le Diaporama</strong>
+              <span>Format interactif</span>
+            </div>
+          </div>
+        </a>
+
+      </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════
-       02 · AVENIR
-  ══════════════════════════ -->
-  <section id="avenir">
-    <div class="sh reveal">
-      <span class="sh-num">02 /</span>
-      <h2 class="sh-title">Mon Projet Professionnel</h2>
-      <div class="sh-line"></div>
+ <!-- 03 AVENIR -->
+<section id="avenir">
+  <div class="sh reveal"><span class="sh-num">03 /</span><h2 class="sh-title">Mon Projet Professionnel</h2><div class="sh-line"></div></div>
+
+  <div class="avenir-grid">
+
+    <div class="avenir-card reveal">
+      <div class="avenir-horizon">🎯 2026</div>
+      <div class="avenir-title">Obtention du BTS SIO SISR</div>
+      <p class="avenir-desc">
+        Ma première étape est de valider mon diplôme avec succès au Lycée Jean Mermoz pour consolider mes bases techniques en systèmes et réseaux.
+      </p>
     </div>
-    <div class="avenir-grid">
 
-      <div class="avenir-card reveal">
-        <div class="avenir-horizon">Dans 2 – 3 ans</div>
-        <div class="avenir-title">Technicien systèmes & réseaux</div>
-        <p class="avenir-desc">Après mon BTS, je souhaite décrocher un poste de technicien informatique au sein d'une entreprise ou d'une collectivité. Mon objectif est de consolider mes compétences sur le terrain : gérer des parcs informatiques, assurer le bon fonctionnement des serveurs et accompagner les utilisateurs au quotidien. Une expérience en alternance serait idéale pour accélérer cette montée en compétences.</p>
-      </div>
-
-      <div class="avenir-card reveal">
-        <div class="avenir-horizon">Dans 5 ans</div>
-        <div class="avenir-title">Administrateur systèmes confirmé</div>
-        <p class="avenir-desc">Je me vois évoluer vers un rôle d'administrateur systèmes et réseaux, avec plus de responsabilités sur l'architecture de l'infrastructure. Je souhaite approfondir mes connaissances en cybersécurité et en virtualisation, et pourquoi pas obtenir des certifications reconnues dans le domaine (type Cisco ou Microsoft). L'objectif est d'être un référent technique au sein de mon équipe.</p>
-      </div>
-
-      <div class="avenir-card reveal">
-        <div class="avenir-horizon">Dans 10 ans</div>
-        <div class="avenir-title">Responsable infrastructure ou cybersécurité</div>
-        <p class="avenir-desc">Sur le long terme, j'aspire à prendre en charge la gestion complète d'une infrastructure informatique, ou à me spécialiser dans la cybersécurité. Le poste de responsable technique ou de chef de projet dans ce domaine m'attire beaucoup. Je n'exclus pas non plus de me former davantage via une licence ou un bachelor pour renforcer mon profil et évoluer vers des fonctions à plus haute responsabilité.</p>
-      </div>
-
+    <div class="avenir-card reveal">
+      <div class="avenir-horizon">🎓 2027</div>
+      <div class="avenir-title">Bachelor / Licence Pro en Alternance</div>
+      <p class="avenir-desc">
+        Je souhaite poursuivre mes études en alternance pour allier théorie et pratique, en me spécialisant dans l'administration des systèmes complexes ou la cybersécurité.
+      </p>
     </div>
-  </section>
 
-  <!-- ══════════════════════════
-       03 · FORMATION
-  ══════════════════════════ -->
+    <div class="avenir-card reveal">
+      <div class="avenir-horizon">🚀 2029+</div>
+      <div class="avenir-title">Poste de Technicien / Administrateur</div>
+      <p class="avenir-desc">
+        Mon objectif est d'intégrer une grande entreprise pour gérer des infrastructures d'envergure, assurer la sécurité des données et évoluer vers des responsabilités d'expert.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+  <!-- 04 FORMATION -->
   <section id="formation">
-    <div class="sh reveal">
-      <span class="sh-num">03 /</span>
-      <h2 class="sh-title">Parcours Scolaire</h2>
-      <div class="sh-line"></div>
-    </div>
+    <div class="sh reveal"><span class="sh-num">04 /</span><h2 class="sh-title">Parcours Scolaire</h2><div class="sh-line"></div></div>
     <div class="formation-list">
       <div class="formation-card reveal">
         <div class="fc-icon">🎓</div>
@@ -391,7 +471,7 @@ footer span{color:var(--blue)}
           <div class="fc-title">BTS SIO — Option SISR (Solutions d'Infrastructure, Systèmes et Réseaux)</div>
           <div class="fc-place">Lycée Jean Mermoz · Montpellier</div>
         </div>
-        <span class="fc-badge badge-blue">En cours</span>
+        <span class="fc-badge badge-blue-fc">En cours</span>
       </div>
       <div class="formation-card reveal">
         <div class="fc-icon">📋</div>
@@ -400,7 +480,7 @@ footer span{color:var(--blue)}
           <div class="fc-title">Bac Pro Systèmes Numériques (SN) — Option Réseaux Informatiques et Systèmes Communicants</div>
           <div class="fc-place">Lycée · Montpellier</div>
         </div>
-        <span class="fc-badge badge-green">Obtenu avec mention</span>
+        <span class="fc-badge badge-green-fc">Obtenu avec mention</span>
       </div>
       <div class="formation-card reveal">
         <div class="fc-icon">📚</div>
@@ -409,66 +489,52 @@ footer span{color:var(--blue)}
           <div class="fc-title">Brevet des Collèges</div>
           <div class="fc-place">Collège · Montpellier</div>
         </div>
-        <span class="fc-badge badge-green">Obtenu</span>
+        <span class="fc-badge badge-green-fc">Obtenu</span>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════
-       04 · EXPÉRIENCES
-  ══════════════════════════ -->
+  <!-- 05 EXPÉRIENCES -->
   <section id="experiences">
-    <div class="sh reveal">
-      <span class="sh-num">04 /</span>
-      <h2 class="sh-title">Expériences Professionnelles</h2>
-      <div class="sh-line"></div>
-    </div>
+    <div class="sh reveal"><span class="sh-num">05 /</span><h2 class="sh-title">Expériences Professionnelles</h2><div class="sh-line"></div></div>
     <div class="exp-list">
 
-      <!-- Stage DSI Hérault -->
       <div class="exp-card reveal">
         <div class="exp-top">
           <div>
             <div class="exp-title">Technicien Support & Déploiement Informatique</div>
-            <div class="exp-company">Direction des Systèmes d'Information — Département de l'Hérault &nbsp;·&nbsp; Stage de 2ème année</div>
+            <div class="exp-company">Direction des Systèmes d'Information — Département de l'Hérault · Stage 2ème année</div>
           </div>
           <div class="exp-date">2025</div>
         </div>
         <div class="quote-box">
           « Dans un contexte de sous-effectif technique, Rachid n'a pas réalisé un simple stage d'observation. Il s'est positionné comme un véritable renfort opérationnel. Son autonomie nous a été d'une aide concrète pour maintenir la continuité de service. »
-          <span class="quote-author">— Évaluation de la Responsable de la Direction des Systèmes d'Information · Tutrice de stage</span>
+          <span class="quote-author">— Évaluation de la Responsable de la DSI · Tutrice de stage</span>
         </div>
         <ul class="tasks">
-          <li>Gestion des comptes utilisateurs et réinitialisation de mots de passe dans l'<strong>annuaire informatique</strong> (Active Directory)</li>
-          <li>Copie du système d'exploitation sur des dizaines de postes (<strong>mastérisation</strong>) pour renouveler le parc informatique</li>
+          <li>Gestion des comptes utilisateurs et réinitialisation de mots de passe dans l'<strong>annuaire informatique</strong></li>
+          <li>Copie du système d'exploitation sur des dizaines de postes (<strong>mastérisation</strong>) pour renouveler le parc</li>
           <li>Assistance à distance des utilisateurs via le logiciel de gestion des demandes <strong>Matrix42</strong></li>
-          <li>Inscription de tablettes dans le système de gestion centralisée des appareils mobiles pour les assistants familiaux</li>
+          <li>Inscription de tablettes dans le système de gestion centralisée des appareils mobiles</li>
           <li>Remplacement de matériel défectueux (écrans, batteries) directement sur site</li>
           <li>Comptage, mise sur palette et conditionnement de <strong>125 commutateurs réseau</strong> pour expédition</li>
         </ul>
         <div class="pills">
-          <span class="pill">Annuaire utilisateurs</span>
-          <span class="pill">Matrix42</span>
-          <span class="pill">Mastérisation de postes</span>
-          <span class="pill">Gestion d'appareils mobiles</span>
-          <span class="pill">Assistance utilisateurs</span>
+          <span class="pill">Annuaire utilisateurs</span><span class="pill">Matrix42</span>
+          <span class="pill">Mastérisation</span><span class="pill">Gestion appareils mobiles</span><span class="pill">Assistance N1/N2</span>
         </div>
         <a href="stage-departement-herault.pdf" target="_blank" class="doc-link">
           <div class="doc-link-icon">📄</div>
-          <div class="doc-link-text">
-            <strong>Consulter le Dossier Technique</strong>
-            <span>Stage — Département de l'Hérault · PDF</span>
-          </div>
+          <div class="doc-link-text"><strong>Consulter le Dossier Technique</strong><span>Stage DSI Département de l'Hérault · PDF</span></div>
           <span class="doc-link-cta">Ouvrir →</span>
         </a>
       </div>
 
-      <!-- Stage SupDec -->
       <div class="exp-card reveal">
         <div class="exp-top">
           <div>
             <div class="exp-title">Technicien Système & Remise en état de matériel</div>
-            <div class="exp-company">SupDec / Nouas Solidarité &nbsp;·&nbsp; Stage de 1ère année</div>
+            <div class="exp-company">SupDec / Nouas Solidarité · Stage 1ère année</div>
           </div>
           <div class="exp-date">2024</div>
         </div>
@@ -479,28 +545,21 @@ footer span{color:var(--blue)}
           <li>Mise en place et administration à distance d'un serveur sous <strong>Linux Ubuntu</strong></li>
         </ul>
         <div class="pills">
-          <span class="pill">Windows 11</span>
-          <span class="pill">Linux Ubuntu</span>
-          <span class="pill">RAID 0</span>
-          <span class="pill">Administration à distance</span>
-          <span class="pill">Remise en état matériel</span>
+          <span class="pill">Windows 11</span><span class="pill">Linux Ubuntu</span>
+          <span class="pill">RAID 0</span><span class="pill">Administration à distance</span><span class="pill">Remise en état matériel</span>
         </div>
         <a href="e5-stage-nouas-rachid-elghazal.pdf" target="_blank" class="doc-link">
           <div class="doc-link-icon">📄</div>
-          <div class="doc-link-text">
-            <strong>Consulter le Dossier Technique</strong>
-            <span>Reconditionnement & Administration Système · PDF</span>
-          </div>
+          <div class="doc-link-text"><strong>Consulter le Dossier Technique</strong><span>Reconditionnement & Administration Système · PDF</span></div>
           <span class="doc-link-cta">Ouvrir →</span>
         </a>
       </div>
 
-      <!-- Stage Osmozis -->
       <div class="exp-card reveal">
         <div class="exp-top">
           <div>
             <div class="exp-title">Technicien Déploiement Réseau & Vidéosurveillance</div>
-            <div class="exp-company">Osmozis &nbsp;·&nbsp; Stage Terminale Bac Pro</div>
+            <div class="exp-company">Osmozis · Stage Terminale Bac Pro</div>
           </div>
           <div class="exp-date">2023</div>
         </div>
@@ -510,17 +569,12 @@ footer span{color:var(--blue)}
           <li>Raccordement et configuration de <strong>caméras de surveillance</strong> reliées à un enregistreur central</li>
         </ul>
         <div class="pills">
-          <span class="pill">Commutateurs réseau</span>
-          <span class="pill">Wi-Fi professionnel</span>
-          <span class="pill">Caméras de surveillance</span>
-          <span class="pill">Câblage réseau</span>
+          <span class="pill">Commutateurs réseau</span><span class="pill">Wi-Fi professionnel</span>
+          <span class="pill">Caméras de surveillance</span><span class="pill">Câblage réseau</span>
         </div>
         <a href="Rapport_stage_osmozis.pdf" target="_blank" class="doc-link">
           <div class="doc-link-icon">📄</div>
-          <div class="doc-link-text">
-            <strong>Consulter le Rapport de Stage</strong>
-            <span>Déploiement Réseau & Vidéosurveillance · PDF</span>
-          </div>
+          <div class="doc-link-text"><strong>Consulter le Rapport de Stage</strong><span>Déploiement Réseau & Vidéosurveillance · PDF</span></div>
           <span class="doc-link-cta">Ouvrir →</span>
         </a>
       </div>
@@ -528,114 +582,85 @@ footer span{color:var(--blue)}
     </div>
   </section>
 
-  <!-- ══════════════════════════
-       05 · PROJETS E5
-  ══════════════════════════ -->
+  <!-- 06 PROJETS E5 -->
   <section id="projets">
-    <div class="sh reveal">
-      <span class="sh-num">05 /</span>
-      <h2 class="sh-title">Projets E5</h2>
-      <div class="sh-line"></div>
-    </div>
+    <div class="sh reveal"><span class="sh-num">06 /</span><h2 class="sh-title">Projets E5</h2><div class="sh-line"></div></div>
     <div class="projects-grid">
-
-      <!-- Projet AD -->
       <div class="project-card reveal">
         <span class="project-badge">PROJET E5 · SISR</span>
         <div class="project-title">Continuité de service : Annuaire, Noms de domaine & Attribution d'adresses</div>
         <div class="project-sub">Infrastructure hybride Windows / Linux — Contexte GSB</div>
         <p class="project-desc">Mise en place d'une infrastructure réseau capable de rester disponible même en cas de panne sur un serveur. Deux serveurs Windows gèrent les comptes et les droits, tandis qu'un serveur Linux s'occupe de la résolution des noms de domaine.</p>
         <ul class="tasks single" style="margin-bottom:1.1rem">
-          <li>Mise en place de deux serveurs Windows chargés de gérer les <strong>comptes utilisateurs et leurs droits</strong></li>
-          <li>Application de règles automatiques pour déployer des logiciels sur les postes des utilisateurs</li>
+          <li>Deux serveurs Windows chargés de gérer les <strong>comptes utilisateurs et leurs droits</strong></li>
+          <li>Règles automatiques pour déployer des logiciels sur les postes (stratégies de groupe)</li>
           <li>Serveur Linux configuré pour <strong>traduire les noms de domaine en adresses réseau</strong></li>
-          <li>Distribution automatique des adresses réseau entre les différentes zones du réseau</li>
+          <li>Distribution automatique des adresses réseau entre les différentes zones</li>
         </ul>
         <div class="pills">
-          <span class="pill">Windows Server 2022</span>
-          <span class="pill">Rocky Linux 9</span>
-          <span class="pill">Stratégies de groupe</span>
-          <span class="pill">DNS / DHCP</span>
-          <span class="pill">Séparation réseau (VLAN)</span>
+          <span class="pill">Windows Server 2022</span><span class="pill">Rocky Linux 9</span>
+          <span class="pill">Stratégies de groupe</span><span class="pill">DNS / DHCP</span><span class="pill">VLAN</span>
         </div>
         <a href="projet-ad.pdf" target="_blank" class="doc-link">
           <div class="doc-link-icon">📄</div>
-          <div class="doc-link-text">
-            <strong>Consulter le Dossier Technique</strong>
-            <span>Continuité de service AD, DNS & DHCP · PDF</span>
-          </div>
+          <div class="doc-link-text"><strong>Consulter le Dossier Technique</strong><span>Continuité de service AD, DNS & DHCP · PDF</span></div>
           <span class="doc-link-cta">Ouvrir →</span>
         </a>
       </div>
 
-      <!-- Projet Centreon -->
       <div class="project-card reveal">
         <span class="project-badge">PROJET E5 · SISR</span>
         <div class="project-title">Surveillance du réseau avec Centreon</div>
         <div class="project-sub">Supervision proactive — Contexte GSB</div>
-        <p class="project-desc">Mise en place d'un système de surveillance du réseau sous Linux. Ce système vérifie en permanence l'état des serveurs et des équipements réseau, et envoie des alertes en cas de problème.</p>
+        <p class="project-desc">Mise en place d'un système de surveillance du réseau sous Linux. Ce système vérifie en permanence l'état des serveurs et des équipements réseau, et envoie des alertes en cas de problème détecté.</p>
         <ul class="tasks single" style="margin-bottom:1.1rem">
           <li>Surveillance de l'état des serveurs Linux : utilisation du <strong>processeur, de la mémoire et des disques</strong></li>
-          <li>Vérification que les services essentiels (résolution de noms, attribution d'adresses) sont bien disponibles</li>
+          <li>Vérification que les services essentiels (résolution de noms, attribution d'adresses) sont disponibles</li>
           <li>Surveillance des équipements réseau : <strong>commutateurs Cisco et pare-feu Stormshield</strong></li>
         </ul>
         <div class="pills">
-          <span class="pill">Centreon</span>
-          <span class="pill">Surveillance réseau</span>
-          <span class="pill">Linux Rocky 9</span>
-          <span class="pill">Cisco / Stormshield</span>
+          <span class="pill">Centreon</span><span class="pill">Surveillance réseau</span>
+          <span class="pill">Linux Rocky 9</span><span class="pill">Cisco / Stormshield</span>
         </div>
         <a href="projet-centreon.pdf" target="_blank" class="doc-link">
           <div class="doc-link-icon">📄</div>
-          <div class="doc-link-text">
-            <strong>Consulter le Dossier Technique</strong>
-            <span>Mise en place de Centreon · PDF</span>
-          </div>
+          <div class="doc-link-text"><strong>Consulter le Dossier Technique</strong><span>Mise en place de Centreon · PDF</span></div>
           <span class="doc-link-cta">Ouvrir →</span>
         </a>
       </div>
-
     </div>
   </section>
 
-  <!-- ══════════════════════════
-       06 · VEILLE
-  ══════════════════════════ -->
+  <!-- 07 VEILLE -->
   <section id="veille">
-    <div class="sh reveal">
-      <span class="sh-num">06 /</span>
-      <h2 class="sh-title">Veille Technologique</h2>
-      <div class="sh-line"></div>
-    </div>
+    <div class="sh reveal"><span class="sh-num">07 /</span><h2 class="sh-title">Veille Technologique</h2><div class="sh-line"></div></div>
     <div class="veille-wrap reveal">
       <div class="veille-main">
         <div class="veille-header">
           <div class="veille-icon">🛡️</div>
           <div>
             <div class="veille-htitle">La Cybersécurité : protéger les systèmes informatiques</div>
-            <div class="veille-hsub">Thème choisi suite à mon stage à la Direction des Systèmes d'Information du Département de l'Hérault</div>
+            <div class="veille-hsub">Thème choisi suite à mon stage à la DSI du Département de l'Hérault</div>
           </div>
         </div>
-        <p class="veille-intro">
-          Dans un monde de plus en plus connecté, la cybersécurité est devenue un enjeu majeur pour toutes les organisations. Elle vise à <strong>protéger les données et les systèmes informatiques</strong> contre des attaques de plus en plus fréquentes et sophistiquées. Mon expérience au sein d'une collectivité territoriale m'a permis de comprendre concrètement l'importance de ces protections.
-        </p>
+        <p class="veille-intro">Dans un monde de plus en plus connecté, la cybersécurité est devenue un enjeu majeur. Elle vise à <strong>protéger les données et les systèmes informatiques</strong> contre des attaques de plus en plus fréquentes. Mon stage au sein d'une collectivité m'a permis de mesurer concrètement l'importance de ces protections.</p>
         <div class="veille-cols">
           <div class="veille-col">
             <h4>Principales menaces</h4>
             <ul class="veille-list">
-              <li><strong>Hameçonnage (Phishing)</strong> : des e-mails frauduleux imitent des organismes officiels pour voler des identifiants ou des données personnelles</li>
-              <li><strong>Attaque par force brute</strong> : un programme essaie des milliers de combinaisons pour deviner un mot de passe jusqu'à trouver le bon</li>
-              <li><strong>Interception de communications</strong> : un attaquant se place discrètement entre deux personnes qui communiquent pour lire ou modifier leurs échanges</li>
+              <li><strong>Hameçonnage</strong> : des e-mails frauduleux imitent des organismes officiels pour voler des identifiants</li>
+              <li><strong>Attaque par force brute</strong> : un programme essaie des milliers de combinaisons pour deviner un mot de passe</li>
+              <li><strong>Interception de communications</strong> : un attaquant se place entre deux personnes pour lire leurs échanges à leur insu</li>
             </ul>
           </div>
           <div class="veille-col">
             <h4>Comment s'en protéger</h4>
             <ul class="veille-list">
-              <li><strong>Pare-feu et accès sécurisé à distance</strong> : filtrer le trafic réseau et chiffrer les connexions depuis l'extérieur</li>
-              <li><strong>Principe du moindre accès</strong> : chaque utilisateur n'a accès qu'à ce dont il a besoin, rien de plus</li>
-              <li><strong>Séparation du réseau</strong> : isoler les zones sensibles du reste du réseau pour limiter la propagation d'une attaque</li>
-              <li><strong>Mises à jour régulières</strong> : corriger rapidement les failles connues sur tous les équipements</li>
-              <li><strong>Formation des utilisateurs</strong> : apprendre à reconnaître les tentatives d'escroquerie et les comportements à risque</li>
+              <li><strong>Pare-feu et accès sécurisé à distance</strong> : filtrer le trafic réseau et chiffrer les connexions</li>
+              <li><strong>Principe du moindre accès</strong> : chaque utilisateur n'accède qu'à ce dont il a besoin</li>
+              <li><strong>Séparation du réseau</strong> : isoler les zones sensibles pour limiter la propagation d'une attaque</li>
+              <li><strong>Mises à jour régulières</strong> : corriger les failles connues sur tous les équipements</li>
+              <li><strong>Formation des utilisateurs</strong> : apprendre à reconnaître les tentatives d'escroquerie</li>
             </ul>
           </div>
         </div>
@@ -649,23 +674,17 @@ footer span{color:var(--blue)}
         </div>
         <div class="key-card">
           <h4>Ce que j'ai retenu</h4>
-          <div class="key-item"><div class="key-dot"></div>Les collectivités et administrations publiques sont des cibles de choix pour les rançongiciels</div>
-          <div class="key-item"><div class="key-dot"></div>Un annuaire utilisateurs mal configuré est souvent la première porte d'entrée des attaquants</div>
-          <div class="key-item"><div class="key-dot"></div>Former et sensibiliser les utilisateurs reste la mesure la plus efficace et la moins coûteuse</div>
+          <div class="key-item"><div class="key-dot"></div>Les administrations publiques sont des cibles prioritaires des rançongiciels</div>
+          <div class="key-item"><div class="key-dot"></div>Un annuaire mal configuré est souvent la première porte d'entrée des attaquants</div>
+          <div class="key-item"><div class="key-dot"></div>Sensibiliser les utilisateurs reste la mesure la plus efficace et la moins coûteuse</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════
-       07 · CERTIFICATIONS
-  ══════════════════════════ -->
+  <!-- 08 CERTIFICATIONS -->
   <section id="certifications">
-    <div class="sh reveal">
-      <span class="sh-num">07 /</span>
-      <h2 class="sh-title">Certifications</h2>
-      <div class="sh-line"></div>
-    </div>
+    <div class="sh reveal"><span class="sh-num">08 /</span><h2 class="sh-title">Certifications</h2><div class="sh-line"></div></div>
     <div class="certs-grid">
       <div class="cert-card reveal">
         <div class="cert-icon">🖥️</div>
@@ -683,34 +702,22 @@ footer span{color:var(--blue)}
         <div class="cert-icon">🖥️</div>
         <div class="cert-name">PIX — Certification 3</div>
         <div class="cert-org">Pix.fr · Compétences numériques</div>
-        <span class="cert-status status-soon">Obtenu</span>
+        <span class="cert-status status-soon">À confirmer</span>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════
-       08 · CONTACT
-  ══════════════════════════ -->
+  <!-- 09 CONTACT -->
   <section id="contact" style="padding-bottom:0">
-    <div class="sh reveal">
-      <span class="sh-num">08 /</span>
-      <h2 class="sh-title">Contact</h2>
-      <div class="sh-line"></div>
-    </div>
+    <div class="sh reveal"><span class="sh-num">09 /</span><h2 class="sh-title">Contact</h2><div class="sh-line"></div></div>
     <div class="contact-wrap reveal">
       <div class="contact-left">
         <h2>Travaillons<br>ensemble.</h2>
-        <p>Ouvert aux opportunités d'alternance ou de premier emploi dans l'administration systèmes et réseaux. N'hésitez pas à me contacter !</p>
+        <p>Ouvert aux opportunités d'alternance ou de premier emploi dans l'administration systèmes et réseaux.</p>
         <div class="clinks">
-          <a href="mailto:rachidelghazal2006@gmail.com" class="clink">
-            <div class="clink-icon">✉️</div>rachidelghazal2006@gmail.com
-          </a>
-          <a href="https://www.linkedin.com/in/rachid-el-ghazal-0b54062a4/" target="_blank" class="clink">
- 	    <div class="clink-icon">💼</div>Mon Profil LinkedIn
-          </a>
-          <a href="MON_CV.pdf" target="_blank" class="clink">
-            <div class="clink-icon">📄</div>Télécharger mon CV (PDF)
-          </a>
+          <a href="mailto:rachidelghazal2006@gmail.com" class="clink"><div class="clink-icon">✉️</div>rachidelghazal2006@gmail.com</a>
+          <a href="https://linkedin.com/in/ton-profil" target="_blank" class="clink"><div class="clink-icon">💼</div>linkedin.com/in/ton-profil</a>
+          <a href="MON_CV.pdf" target="_blank" class="clink"><div class="clink-icon">📄</div>Télécharger mon CV (PDF)</a>
         </div>
       </div>
       <div class="cform">
@@ -725,29 +732,16 @@ footer span{color:var(--blue)}
 
 </div>
 
-<footer>
-  &copy; 2026 — <span>Rachid El Ghazal</span> · Portfolio BTS SIO SISR · Montpellier
-</footer>
+<footer>&copy; 2026 — <span>Rachid El Ghazal</span> · Portfolio BTS SIO SISR · Montpellier</footer>
 
 <script>
+// Scroll reveal
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('vis'); obs.unobserve(e.target); } });
 }, { threshold: 0.07 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-const sObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if(e.isIntersecting){
-      e.target.querySelectorAll('.skill-fill').forEach(f => {
-        f.style.transform = `scaleX(${parseFloat(f.dataset.w||0)})`;
-        f.classList.add('on');
-      });
-      sObs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.2 });
-document.querySelectorAll('.skills-wrap').forEach(el => sObs.observe(el));
-
+// Nav active
 const navLinks = document.querySelectorAll('.nav-links a');
 const secObs = new IntersectionObserver(entries => {
   entries.forEach(e => {
@@ -757,8 +751,27 @@ const secObs = new IntersectionObserver(entries => {
       if(a) a.style.color = 'white';
     }
   });
-}, { threshold: 0.35 });
+}, { threshold: 0.3 });
 document.querySelectorAll('section[id]').forEach(s => secObs.observe(s));
+
+// File slot handler
+const docURLs = {};
+function handleSlot(input, prevId, urlKey){
+  const file = input.files[0];
+  if(!file) return;
+  docURLs[urlKey] = URL.createObjectURL(file);
+  document.getElementById('name-' + prevId.replace('prev-','')).textContent = file.name;
+  const prev = document.getElementById(prevId);
+  prev.style.display = 'flex';
+  input.closest('.synthese-slot').style.display = 'none';
+}
+function openDoc(urlKey){ if(docURLs[urlKey]) window.open(docURLs[urlKey],'_blank'); }
+function resetSlot(inputId, prevId, nameId){
+  document.getElementById(inputId).value = '';
+  document.getElementById(prevId).style.display = 'none';
+  document.getElementById(nameId).textContent = '';
+  document.getElementById(inputId).closest('.synthese-slot').style.display = 'flex';
+}
 </script>
 </body>
 </html>
