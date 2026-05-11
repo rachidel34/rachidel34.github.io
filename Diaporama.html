@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soutenance E5 - Rachid El Ghazal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #080e1a;
+            --card: rgba(255, 255, 255, 0.03);
+            --blue: #3b7ef8;
+            --cyan: #00c8f0;
+            --text: #f4f7ff;
+            --muted: #6b7fa3;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Outfit', sans-serif; background-color: var(--bg); color: var(--text); overflow: hidden; }
+        
+        /* SLIDER CONTAINER */
+        #slider { width: 100vw; height: 100vh; position: relative; display: flex; transition: transform 0.5s ease-in-out; }
+        
+        /* INDIVIDUAL SLIDE */
+        .slide { min-width: 100vw; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 80px; position: relative; }
+        
+        /* DECORATIONS */
+        .slide::before { content: ''; position: absolute; top: -20%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(59,126,248,0.15) 0%, transparent 70%); z-index: -1; }
+        
+        /* TYPOGRAPHY */
+        h1 { font-size: 5rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; text-align: center; }
+        h1 span { color: var(--blue); }
+        h2 { font-size: 3.5rem; font-weight: 800; color: var(--blue); margin-bottom: 40px; text-align: left; width: 100%; max-width: 1000px; border-left: 6px solid var(--blue); padding-left: 20px; }
+        p, li { font-size: 1.5rem; line-height: 1.6; color: #a0aec0; margin-bottom: 15px; }
+        
+        /* CONTENT LAYOUTS */
+        .content { max-width: 1000px; width: 100%; }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .card { background: var(--card); border: 1px solid rgba(59,126,248,0.2); border-radius: 20px; padding: 40px; }
+        .card h3 { font-size: 2rem; color: var(--text); margin-bottom: 20px; }
+        
+        .list-styled { list-style: none; }
+        .list-styled li { position: relative; padding-left: 30px; margin-bottom: 20px; }
+        .list-styled li::before { content: '▸'; position: absolute; left: 0; color: var(--blue); font-weight: bold; }
+
+        /* NAVIGATION CONTROLS */
+        .controls { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); display: flex; gap: 20px; z-index: 100; background: rgba(0,0,0,0.5); padding: 10px 20px; border-radius: 50px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+        .btn-nav { background: transparent; border: none; color: white; font-size: 1.5rem; cursor: pointer; padding: 10px 20px; border-radius: 10px; transition: 0.2s; font-family: 'Outfit', sans-serif; font-weight: 600; }
+        .btn-nav:hover { background: rgba(59,126,248,0.3); color: var(--cyan); }
+        
+        /* PROGRESS BAR */
+        .progress-container { position: fixed; top: 0; left: 0; width: 100%; height: 5px; background: rgba(255,255,255,0.1); z-index: 100; }
+        .progress-bar { height: 100%; background: var(--blue); width: 0%; transition: width 0.3s; }
+    </style>
+</head>
+<body>
+
+    <div class="progress-container"><div class="progress-bar" id="progress"></div></div>
+
+    <div id="slider">
+
+        <div class="slide">
+            <h1>Soutenance <span>E5</span></h1>
+            <p style="font-size: 2rem; text-align: center;">Parcours de Professionnalisation - BTS SIO SISR</p>
+            <div style="margin-top: 50px; font-family: 'JetBrains Mono'; font-size: 1.2rem; color: var(--cyan);">Rachid EL GHAZAL | Session 2026</div>
+        </div>
+
+        <div class="slide">
+            <div class="content">
+                <h2>Ce que nous allons voir</h2>
+                <div class="card">
+                    <ul class="list-styled" style="font-size: 1.8rem;">
+                        <li>Mon profil et mes compétences</li>
+                        <li>Mes 3 stages en entreprise (Hérault, Nouas, Osmozis)</li>
+                        <li>Mes 2 grands projets techniques (AD & Centreon)</li>
+                        <li>Ma veille technologique (Cybersécurité)</li>
+                        <li>Mon projet d'avenir</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content">
+                <h2>Ce que je sais faire (Compétences)</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>🖥️ Systèmes & Support</h3>
+                        <p>Je sais gérer un parc informatique, aider les utilisateurs avec des outils de tickets (GLPI, Matrix42), et configurer des serveurs Windows et Linux.</p>
+                    </div>
+                    <div class="card">
+                        <h3>🌐 Réseaux & Sécurité</h3>
+                        <p>Je sais câbler un réseau, configurer des switchs (VLAN, Trunk), gérer le routage (OSPF) et sécuriser les accès (VPN, Pare-feu).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content">
+                <h2>Stage 1 : Département de l'Hérault</h2>
+                <div class="card">
+                    <h3>Technicien Support (Assistance aux utilisateurs)</h3>
+                    <ul class="list-styled">
+                        <li><strong>Création de comptes :</strong> J'ai géré les mots de passe et les accès des agents sur l'Active Directory.</li>
+                        <li><strong>Préparation des PC :</strong> J'ai copié Windows sur des dizaines d'ordinateurs en même temps (Mastérisation) pour gagner du temps.</li>
+                        <li><strong>Matériel :</strong> J'ai préparé et expédié 125 switchs réseau pour les collèges.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content">
+                <h2>Stage 2 : Nouas Solidarité</h2>
+                <div class="card">
+                    <h3>Technicien Système (Réparation et Linux)</h3>
+                    <ul class="list-styled">
+                        <li><strong>Dépannage :</strong> J'ai démonté, réparé et réinstallé des stations de travail (HP Z400) qui ne marchaient plus.</li>
+                        <li><strong>Stockage :</strong> J'ai configuré des disques durs ensemble (RAID 0) pour que le serveur aille plus vite.</li>
+                        <li><strong>Linux :</strong> J'ai installé et géré un serveur sous Ubuntu à distance.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content">
+                <h2>Stage 3 : Osmozis</h2>
+                <div class="card">
+                    <h3>Déploiement Physique (Réseau et Wi-Fi)</h3>
+                    <ul class="list-styled">
+                        <li><strong>Sur le terrain :</strong> J'ai installé des antennes Wi-Fi professionnelles dans des campings.</li>
+                        <li><strong>Câblage :</strong> J'ai branché les câbles dans les armoires informatiques (baies de brassage).</li>
+                        <li><strong>Sécurité :</strong> J'ai installé et réglé des caméras de vidéosurveillance sur le réseau.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content">
+                <h2>Projet Technique 1</h2>
+                <div class="card">
+                    <h3>Gérer les comptes et les accès (Active Directory)</h3>
+                    <p><strong>Le but :</strong> Avoir un réseau qui ne tombe jamais en panne.</p>
+                    <ul class="list-styled">
+                        <li>J'ai installé deux serveurs Windows pour gérer les comptes des employés et bloquer ce qu'ils n'ont pas le droit de voir (GPO).</li>
+                        <li>J'ai ajouté un serveur Linux pour donner les adresses IP automatiquement (DHCP) et gérer les noms des sites (DNS).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content">
+                <h2>Projet Technique 2</h2>
+                <div class="card">
+                    <h3>Surveiller le réseau (Centreon)</h3>
+                    <p><strong>Le but :</strong> Être prévenu avant que les utilisateurs ne se plaignent.</p>
+                    <ul class="list-styled">
+                        <li>J'ai installé un serveur Linux avec l'outil <strong>Centreon</strong>.</li>
+                        <li>Il vérifie toutes les minutes si les routeurs, les switchs et les serveurs fonctionnent bien.</li>
+                        <li>S'il y a une panne (plus d'internet ou serveur plein), ça s'affiche en rouge sur mon écran.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content">
+                <h2>Ma Veille Technologique</h2>
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>La Cybersécurité</h3>
+                        <p>Je m'informe régulièrement (via l'ANSSI et Zataz) sur les attaques informatiques, surtout celles qui visent les mairies et les hôpitaux (Ransomwares).</p>
+                    </div>
+                    <div class="card">
+                        <h3>Ce que j'ai appris</h3>
+                        <p>Le meilleur pare-feu, c'est l'utilisateur. Apprendre aux gens à ne pas cliquer sur des faux e-mails (hameçonnage) évite 80% des virus.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <div class="content" style="text-align: center;">
+                <h2>Mon projet d'avenir</h2>
+                <div class="card" style="display: inline-block; text-align: left;">
+                    <ul class="list-styled" style="font-size: 1.8rem; margin-bottom: 0;">
+                        <li><strong>2026 :</strong> Obtenir mon BTS SIO.</li>
+                        <li><strong>2027 :</strong> Faire une Licence ou un Bachelor en alternance.</li>
+                        <li><strong>2029 :</strong> Devenir technicien confirmé dans une grande entreprise.</li>
+                    </ul>
+                </div>
+                <h1 style="margin-top: 60px; font-size: 4rem;">Merci de m'avoir écouté !</h1>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="controls">
+        <button class="btn-nav" onclick="prevSlide()">← Précédent</button>
+        <button class="btn-nav" onclick="nextSlide()">Suivant →</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const slider = document.getElementById('slider');
+        const progressBar = document.getElementById('progress');
+
+        function updateSlider() {
+            slider.style.transform = `translateX(-${currentSlide * 100}vw)`;
+            // Mise à jour de la barre de progression
+            const progress = ((currentSlide + 1) / slides.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        function nextSlide() {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                updateSlider();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlider();
+            }
+        }
+
+        // Permet aussi d'utiliser les flèches du clavier !
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        updateSlider(); // Initialisation
+    </script>
+</body>
+</html>
